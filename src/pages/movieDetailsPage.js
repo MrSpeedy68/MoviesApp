@@ -23,6 +23,7 @@ const MoviePage = ({ movie }) => {
             </div>
             <div className="col-9">
               <MovieDetails movie={movie} />
+              
             </div>
           </div>
         </>
