@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./filterControls.css";
+import { getGenres } from "../../api/tmdb-api";
 
 const FilterControls = props => {
   const [genres, setGenres] = useState([{ id: '0', name: "All" }])
 
   useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=8b4046823b036ee3111a70918a391640"
-    )
-      .then(res => res.json())
-      .then(json => json.genres)
-      .then(apiGenres => {
-        setGenres([genres[0], ...apiGenres]);
-      });
+    getGenres().then(allGenres => {
+      setGenres([genres[0], ...allGenres]);
+    });
   }, []);
 
   const handleChange = (e, type, value) => {
