@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import MovieHeader from "../components/headerMovie";
 import MovieDetails from "../components/movieDetails";
 import "./moviePage.css";
 
-const MoviePage = ({ movie }) => {
+const MoviePage = props => {
+  const { id } = props.match.params
+  const [movie, setMovie] = useState(null)
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=8b4046823b036ee3111a70918a391640`
+    ).then(res => res.json())    
+    .then(movie => {
+      setMovie(movie);
+    })
+  }, [id])
+
   return (
     <>
       {movie ? (
