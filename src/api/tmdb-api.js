@@ -28,7 +28,7 @@ export const getMovies = () => {
       .then(json => json.results);
   };
 
-  export const getUpcomingMovie = () => {
+  export const getUpcomingMovies = () => {
     return fetch(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=8b4046823b036ee3111a70918a391640&language=en-US&page=1`
     )
