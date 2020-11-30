@@ -8,12 +8,13 @@ import FavoriteMoviesPage from './pages/favoritesMoviesPage';       // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
-import MostPopularMoviesPage from "./pages/mostPopularMoviesPage"
+import MostPopularMoviesPage from "./pages/mostPopularMoviesPage";
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import TopRatedMoviesPage from './pages/topRatedMoviesPage';
-import NowPlayingMoviesPage from './pages/nowPlayingMoviesPage'
+import NowPlayingMoviesPage from './pages/nowPlayingMoviesPage';
+import WatchlistMoviesPage from './pages/watchlistMoviesPage';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
                   <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                   <Route path="/reviews/:id" component={MovieReviewPage} />
                   <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                  <Route exact path="/movies/watchlist" component={WatchlistMoviesPage} />
                   <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                   <Route exact path="/movies/mostpopular" component={MostPopularMoviesPage} />
                   <Route exact path="/movies/nowplaying" component={NowPlayingMoviesPage} />
