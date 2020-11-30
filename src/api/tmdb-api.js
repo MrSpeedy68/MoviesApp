@@ -35,3 +35,27 @@ export const getMovies = () => {
       .then(res => res.json())
       .then(json => json.results);
   };
+
+  export const getMostPopular = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=8b4046823b036ee3111a70918a391640&language=en-US&page=1`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+  };
+
+  export const getTopRated = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=8b4046823b036ee3111a70918a391640&language=en-US&page=1`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+  };
+
+  export const getNowPlaying = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=8b4046823b036ee3111a70918a391640&language=en-US&page=1`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+  };

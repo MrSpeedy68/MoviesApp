@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies, getUpcomingMovies } from "../api/tmdb-api";
+import { getMovies, getUpcomingMovies, getMostPopular, getTopRated, getNowPlaying } from "../api/tmdb-api";
 
 export const MoviesContext = createContext(null);
 
@@ -11,6 +11,9 @@ const reducer = (state, action) => {
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
         upcoming: [...state.upcoming],
+        mostpopular: [...state.mostpopular],
+        nowplaying: [...state.nowplaying],
+        toprated: [...state.toprated],
       };
     case "add-watchlist":
       return {
@@ -18,11 +21,25 @@ const reducer = (state, action) => {
           m.id === action.payload.movie.id ? { ...m, watchlist: true} : m
           ),
           movies: [...state.movies],
+          mostpopular: [...state.mostpopular],
+          toprated: [...state.toprated],
+          nowplaying: [...state.nowplaying]
       };
     case "load":
-      return { movies: action.payload.movies, upcoming: [...state.upcoming] };
+      return { movies: action.payload.movies, upcoming: [...state.upcoming], mostpopular: [...state.mostpopular],
+         toprated: [...state.toprated], nowplaying: [...state.nowplaying] };
     case "load-upcoming":
-      return { upcoming: action.payload.movies, movies: [...state.movies] };
+      return { upcoming: action.payload.movies, movies: [...state.movies], mostpopular: [...state.mostpopular],
+         toprated: [...state.toprated], nowplaying: [...state.nowplaying] };
+    case "load-mostpopular":
+      return { mostpopular: action.payload.movies, upcoming: [...state.upcoming], movies: [...state.movies],
+         toprated: [...state.toprated], nowplaying: [...state.nowplaying] };
+    case "load-toprated":
+      return { toprated: action.payload.movies, upcoming: [...state.upcoming], movies: [...state.movies],
+         mostpopular: [...state.mostpopular], nowplaying: [...state.nowplaying] };
+    case "load-nowplaying":
+      return { nowplaying: action.payload.movies, upcoming: [...state.upcoming], movies: [...state.movies],
+         mostpopular: [...state.mostpopular], toprated: [...state.toprated] };
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -31,6 +48,9 @@ const reducer = (state, action) => {
             : m
         ),
         upcoming: [...state.upcoming],
+        mostpopular: [...state.mostpopular],
+        toprated: [...state.toprated],
+        nowplaying: [...state.nowplaying],
       };
     default:
       return state;
@@ -38,11 +58,13 @@ const reducer = (state, action) => {
 };
 
 const MoviesContextProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [] });
+  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [],
+     mostpopular: [], toprated: [], nowplaying: [] });
 
   const addToFavorites = (movieId) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
-    dispatch({ type: "add-favorite", payload: { movie: state.movies[index] } });
+    dispatch({ type: "add-favorite", payload: { movie: state.movies[index], mostpopular: state.mostpopular[index],
+       toprated: state.toprated[index], nowplaying: state.nowplaying[index] } });
   };
 
   const addToWatchList = (movieId) => {
@@ -68,11 +90,35 @@ const MoviesContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    getMostPopular().then((movies) => {
+      dispatch({ type: "load-mostpopular", payload: { movies } });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    getTopRated().then((movies) => {
+      dispatch({ type: "load-toprated", payload: { movies } });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    getNowPlaying().then((movies) => {
+      dispatch({ type: "load-nowplaying", payload: { movies } });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
         upcoming: state.upcoming,
+        mostpopular: state.mostpopular,
+        toprated: state.toprated,
+        nowplaying: state.nowplaying,
         addToFavorites: addToFavorites,
         addToWatchList: addToWatchList,
         addReview: addReview,

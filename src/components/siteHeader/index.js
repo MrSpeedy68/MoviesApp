@@ -42,6 +42,21 @@ const SiteHeader = () => {
               Favorites
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/movies/mostpopular">
+              Most Popular
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/movies/nowplaying">
+              Now Playing
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/movies/toprated">
+              Top Rated
+            </Link>
+          </li>
         </ul>
       </nav>
     </nav>
