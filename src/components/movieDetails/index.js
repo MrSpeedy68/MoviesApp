@@ -53,13 +53,27 @@ export default ({ movie }) => {
       </ul>
       <ul className="list-group list-group-horizontal">
         <li key="pch" className="list-group-item list-group-item-dark">
-          Production Companies
+          Production Countries
         </li>
         {movie.production_countries.map(pc => (
           <li key={pc.name} className="list-group-item">
             {pc.name}
           </li>
         ))}
+      </ul>
+      <ul className="list-group list-group-horizontal">
+        <li key="rdh" className="list-group-item list-group-item-dark">
+          Movie Budget
+        </li>
+        <li key="rdv" className="list-group-item ">
+          {movie.budget}
+        </li>
+        <li key="rdh" className="list-group-item list-group-item-dark">
+          Movie Status
+        </li>
+        <li key="rdv" className="list-group-item ">
+          {movie.status}
+        </li>
       </ul>
     </>
   );
