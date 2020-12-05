@@ -6,6 +6,7 @@ import MovieReviews from "../components/movieReviews";
 import MovieCast from "../components/movieCast";
 import MovieCrew from "../components/movieCrew";
 import useMovie from "../hooks/useMovie";
+import MovieProviders from "../components/movieProviders";
 
 const MoviePage = props => {
   const { id } = props.match.params;
@@ -28,6 +29,8 @@ const MoviePage = props => {
                 </Link>
           </div>
         </div>
+
+        <MovieProviders movie={movie}> </MovieProviders>
 
         <table className="table table-striped table-bordered table-hover">
           <thead>

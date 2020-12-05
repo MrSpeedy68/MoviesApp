@@ -10,4 +10,9 @@ the movie was released or not.
 
 3. Added another TMDB endpoint of credits and extracted movie crew and the movie cast and added the following details to the movie details page.
 
+4.Added another TMDB endpoint for similar movies which takes the current movies id and runs a fetch for similar movies and displays them.
+
+5.Added another TMDB endpoint for movie providers. In the movie details it will display where the movie can be purchased if its available in Ireland.
+
+
 

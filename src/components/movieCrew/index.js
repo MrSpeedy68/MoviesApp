@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getMovieCredits } from "../../api/tmdb-api";
-import { Link } from "react-router-dom";
-import { excerpt } from "../../util";
 
 export default ({ movie }) => {
 
