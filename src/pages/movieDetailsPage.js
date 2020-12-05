@@ -18,6 +18,17 @@ const MoviePage = props => {
           <MovieDetails movie={movie} />
         </PageTemplate>
 
+        <div className="row">
+          <div className="col-4">
+                <Link
+                  className="btn btn-primary btn-block active"
+                  to={`/movies/${id}/similar`}
+                >
+                  Similar Movies
+                </Link>
+          </div>
+        </div>
+
         <table className="table table-striped table-bordered table-hover">
           <thead>
             <tr>
@@ -27,7 +38,7 @@ const MoviePage = props => {
           </thead>
         </table>
 
-        
+
         
         <div className="row">
           <div className="col-12 ">
