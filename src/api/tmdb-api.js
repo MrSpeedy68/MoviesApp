@@ -58,6 +58,7 @@ export const getMovies = () => {
     )
       .then(res => res.json())
       .then(json => json.results);
+<<<<<<< HEAD
   };
   
 
@@ -82,4 +83,6 @@ export const getMovies = () => {
     )
       .then(res => res.json())
       .then(json => json.results.IE);
+=======
+>>>>>>> parent of 9af00b5... Added Movie Cast and Movie Crew on the movie details page
   };

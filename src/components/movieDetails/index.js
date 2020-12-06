@@ -2,8 +2,6 @@ import React from "react";
 import "./movieDetails.css";
 
 export default ({ movie }) => {
-
-
   return (
     <>
       <h4>Overview</h4>
@@ -54,7 +52,7 @@ export default ({ movie }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="prc" className="list-group-item list-group-item-dark">
+        <li key="pch" className="list-group-item list-group-item-dark">
           Production Countries
         </li>
         {movie.production_countries.map(pc => (
@@ -64,16 +62,16 @@ export default ({ movie }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="mvbh" className="list-group-item list-group-item-dark">
+        <li key="rdh" className="list-group-item list-group-item-dark">
           Movie Budget
         </li>
-        <li key="mvb" className="list-group-item ">
+        <li key="rdv" className="list-group-item ">
           {movie.budget}
         </li>
-        <li key="mvsh" className="list-group-item list-group-item-dark">
+        <li key="rdh" className="list-group-item list-group-item-dark">
           Movie Status
         </li>
-        <li key="mvs" className="list-group-item ">
+        <li key="rdv" className="list-group-item ">
           {movie.status}
         </li>
       </ul>

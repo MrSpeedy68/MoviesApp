@@ -3,8 +3,6 @@ import { Link, Route, withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
-import MovieCast from "../components/movieCast";
-import MovieCrew from "../components/movieCrew";
 import useMovie from "../hooks/useMovie";
 import MovieProviders from "../components/movieProviders";
 
@@ -18,6 +16,7 @@ const MoviePage = props => {
         <PageTemplate movie={movie}>
           <MovieDetails movie={movie} />
         </PageTemplate>
+<<<<<<< HEAD
 
         <div className="row">
           <div className="col-4">
@@ -43,6 +42,8 @@ const MoviePage = props => {
 
 
         
+=======
+>>>>>>> parent of 9af00b5... Added Movie Cast and Movie Crew on the movie details page
         <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (
