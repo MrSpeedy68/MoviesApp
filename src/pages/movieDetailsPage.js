@@ -5,6 +5,8 @@ import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
 import MovieProviders from "../components/movieProviders";
+import MovieCast from "../components/movieCast";
+import MovieCrew from "../components/movieCrew";
 
 const MoviePage = props => {
   const { id } = props.match.params;
@@ -16,7 +18,6 @@ const MoviePage = props => {
         <PageTemplate movie={movie}>
           <MovieDetails movie={movie} />
         </PageTemplate>
-<<<<<<< HEAD
 
         <div className="row">
           <div className="col-4">
@@ -39,11 +40,7 @@ const MoviePage = props => {
             </tr>
           </thead>
         </table>
-
-
-        
-=======
->>>>>>> parent of 9af00b5... Added Movie Cast and Movie Crew on the movie details page
+      
         <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (
