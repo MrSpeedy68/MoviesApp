@@ -5,6 +5,7 @@ import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
 import MovieProviders from "../components/movieProviders";
+import MovieProvidersLink from "../components/movieProvidersLink"
 import MovieCast from "../components/movieCast";
 import MovieCrew from "../components/movieCrew";
 
@@ -31,6 +32,8 @@ const MoviePage = props => {
         </div>
 
         <MovieProviders movie={movie}> </MovieProviders>
+        <MovieProvidersLink movie={movie}></MovieProvidersLink>
+
 
         <table className="table table-striped table-bordered table-hover">
           <thead>

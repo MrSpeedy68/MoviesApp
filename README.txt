@@ -14,5 +14,7 @@ the movie was released or not.
 
 5.Added another TMDB endpoint for movie providers. In the movie details it will display where the movie can be purchased if its available in Ireland.
 
+6. Added Data hyperlinking in the movies details page with a link to where to buy the movie
+
 
 
