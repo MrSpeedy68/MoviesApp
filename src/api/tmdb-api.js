@@ -82,6 +82,6 @@ export const getMovies = () => {
       `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${process.env.REACT_APP_TMDB_KEY}`
     )
       .then(res => res.json())
-      .then(json => json.results.IE);
+      .then(json => json.results);
 
   };

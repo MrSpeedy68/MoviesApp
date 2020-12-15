@@ -6,20 +6,29 @@ export default ({ movie }) => {
 
     useEffect(() => {
         getMovieProviders(movie.id).then(whereToBuy => {
-            setProviders(whereToBuy.buy);
+            setProviders(whereToBuy.IE.buy)
         });
     }, []);
 
-    return ( 
-        <div>
-            <h4>Where to buy in Ireland</h4>
-            {whereToBuy.map(p => {
-                return (
-                    <div>
-                        {p.provider_name}
-                    </div>
-                );
-            })}
-        </div>
-    );
+    if(whereToBuy != null)
+        return ( 
+            <div>
+                <h4>Where to buy in Ireland</h4>
+                {whereToBuy.map(p => {
+                    return (
+                        <div>
+                            {p.provider_name}
+                        </div>
+                    );
+                })}
+            </div>
+        );
+        return (
+            <div>
+                <h4>Where to buy in Ireland</h4>
+                <div>
+                    No vendors in Ireland
+                </div>
+            </div>
+        );
 };
