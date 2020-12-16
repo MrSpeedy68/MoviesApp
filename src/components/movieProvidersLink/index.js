@@ -8,7 +8,7 @@ export default ({ movie }) => {
 
     useEffect(() => {
         getMovieProviders(movie.id).then(whereToBuy => {
-            setProviders(whereToBuy.IE)
+            setProviders(whereToBuy)
         });
     }, []);
 

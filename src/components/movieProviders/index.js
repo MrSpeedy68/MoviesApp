@@ -7,11 +7,12 @@ export default ({ movie }) => {
 
     useEffect(() => {
         getMovieProviders(movie.id).then(whereToBuy => {
-            setProviders(whereToBuy.IE.buy)
+            if(whereToBuy !== undefined)
+                setProviders(whereToBuy.buy)
         });
     }, []);
 
-    if(whereToBuy != null)
+    if(whereToBuy != null && whereToBuy !== undefined)
         return ( 
             <div>
                 <h4>Where to buy in Ireland</h4>

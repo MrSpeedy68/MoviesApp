@@ -26,18 +26,18 @@ const App = () => {
             <MoviesContextProvider>
               <GenresContextProvider>
                   <Switch>
-                  <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-                  <Route path="/reviews/:id" component={MovieReviewPage} />
-                  <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                  <Route exact path="/movies/watchlist" component={WatchlistMoviesPage} />
-                  <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-                  <Route exact path="/movies/mostpopular" component={MostPopularMoviesPage} />
-                  <Route exact path="/movies/nowplaying" component={NowPlayingMoviesPage} />
-                  <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
-                  <Route exact path="/movies/:id" component={MoviePage} />
-                  <Route path="/movies/:id/similar" component={SimilarMoviesPage} />
-                  <Route path="/" component={HomePage} />
-                  <Redirect from="*" to="/" />
+                    <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+                    <Route path="/reviews/:id" component={MovieReviewPage} />
+                    <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                    <Route exact path="/movies/watchlist" component={WatchlistMoviesPage} />
+                    <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+                    <Route exact path="/movies/mostpopular" component={MostPopularMoviesPage} />
+                    <Route exact path="/movies/nowplaying" component={NowPlayingMoviesPage} />
+                    <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
+                    <Route exact path="/movies/:id" component={MoviePage} />
+                    <Route path="/movies/:id/similar" component={SimilarMoviesPage} />
+                    <Route path="/" component={HomePage} />
+                    <Redirect from="*" to="/" />
                 </Switch>
               </GenresContextProvider>
             </MoviesContextProvider>
